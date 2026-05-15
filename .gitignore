@@ -1,0 +1,8 @@
+# Local/private people assets are not part of the public brand kit.
+botspot/avatars/
+
+# OS/editor noise
+.DS_Store
+*.swp
+*.swo
+*~
