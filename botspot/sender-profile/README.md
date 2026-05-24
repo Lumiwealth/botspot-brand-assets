@@ -10,6 +10,7 @@ Status as of 2026-05-24:
 - All three accounts show `Cloud Identity Free` only and `$0.00` total estimated monthly bill in Google Admin.
 - All three accounts have been signed in once and their Google Account profile-picture visibility is set to `Anyone`.
 - Fresh real SES test messages to `rob@lumiwealth.com` show the BotSpot sender avatar in Gmail for all three accounts.
+- `contact@botspot.trade` is also saved in Rob's Google Contacts as `BotSpot by Lumiwealth` with the canonical badge, because Gmail iOS can use the recipient's Contacts card/directory resolution in the message list.
 
 ## Canonical Asset
 
@@ -59,6 +60,14 @@ For each sender user:
 4. Confirm `Profile picture` is visible to `Anyone`.
 5. Send a real SES test message and inspect it in Gmail.
 
+For `contact@botspot.trade`, also save/update the matching Google Contacts card in Rob's `rob@lumiwealth.com` contacts:
+
+- Name: `BotSpot by Lumiwealth`
+- Email: `contact@botspot.trade`
+- Photo: `/Users/robertgrzesik/Development/brand-assets/botspot/botspot_icon_badge_rgba.png`
+
+Reason: on 2026-05-24, Gmail web opened-message headers showed the badge, but Gmail iOS still showed the blue default avatar for the message-list rows from `contact@botspot.trade`. Saving the contact card and assigning the same canonical badge fixed the most likely iOS list-view override/cache path.
+
 This was verified on 2026-05-24.
 
 ## Verified Gmail Evidence
@@ -79,6 +88,16 @@ Screenshots:
 - `/Users/robertgrzesik/Development/brand-assets/botspot/sender-profile/gmail_open_rob_final_logo_20260524-210728.png`
 
 All three opened Gmail screenshots show the real circular BotSpot badge next to the sender name.
+
+Follow-up `contact@botspot.trade` retest after Google Contacts override:
+
+- First retest message ID: `0100019e5bf36401-58b88543-37f2-4583-8a5c-c7c8b8f25b3e-000000`
+- Final retest message ID: `0100019e5bf854aa-1af8c02b-d8db-46b4-9b89-e32f0fd6ad9f-000000`
+- `/Users/robertgrzesik/Development/brand-assets/botspot/sender-profile/google_contacts_contact_botspot_trade_after_contact_photo_20260524.png`
+- `/Users/robertgrzesik/Development/brand-assets/botspot/sender-profile/gmail_open_contact_after_contact_override_20260524-214537.png`
+- `/Users/robertgrzesik/Development/brand-assets/botspot/sender-profile/gmail_open_contact_after_name_photo_override_20260524-215101.png`
+
+The final Gmail web opened-message screenshot shows `BotSpot by Lumiwealth <contact@botspot.trade>` with the real circular BotSpot badge after the contact-card photo and name normalization.
 
 ## Historical Failed Evidence
 
