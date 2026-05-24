@@ -8,23 +8,34 @@ Status as of 2026-05-24:
   - `rob@botspot.trade`
 - All three accounts are in the `BotSpot Sender Identities` organizational unit.
 - All three accounts show `Cloud Identity Free` only and `$0.00` total estimated monthly bill in Google Admin.
-- Static profile photos were uploaded through Google Admin for all three users.
-- Gmail test emails sent through SES still showed the default blue sender avatar immediately after upload.
+- All three accounts have been signed in once and their Google Account profile-picture visibility is set to `Anyone`.
+- Fresh real SES test messages to `rob@lumiwealth.com` show the BotSpot sender avatar in Gmail for all three accounts.
 
-## Assets
+## Canonical Asset
 
-- Approved source animation:
-  `/Users/robertgrzesik/Development/.runway_output/botspot_sender_avatar_variant_a_pulse.mp4`
-- Animated GIF export:
-  `/Users/robertgrzesik/Development/brand-assets/botspot/sender-profile/botspot_sender_avatar_variant_a_256.gif`
-- Static PNG export used for Google Admin:
-  `/Users/robertgrzesik/Development/brand-assets/botspot/sender-profile/botspot_sender_avatar_variant_a_static_512.png`
-- Contact sheet inspected before upload:
-  `/Users/robertgrzesik/Development/brand-assets/botspot/sender-profile/botspot_sender_avatar_variant_a_contact_sheet.jpg`
+Use this for Google sender/profile avatars:
 
-## What Was Verified
+`/Users/robertgrzesik/Development/brand-assets/botspot/botspot_icon_badge_rgba.png`
 
-### Google Admin Upload
+Convenience pointer:
+
+`/Users/robertgrzesik/Development/brand-assets/botspot/sender-profile/botspot_sender_profile_logo.png`
+
+That pointer is a symlink to the canonical badge above.
+
+## Do Not Use
+
+Do not use these for Gmail sender/profile avatars:
+
+- `/Users/robertgrzesik/Development/brand-assets/botspot/botspot_favicon.png`
+- `/Users/robertgrzesik/Development/brand-assets/botspot/botspot_favicon_rgba.png`
+- `/Users/robertgrzesik/Development/brand-assets/botspot/botspot_favicon_cyan.png`
+- `/Users/robertgrzesik/Development/brand-assets/botspot/sender-profile/botspot_sender_avatar_variant_a_static_512.png`
+- `/Users/robertgrzesik/Development/brand-assets/botspot/sender-profile/botspot_sender_avatar_variant_a_256.gif`
+
+The favicon is an app/browser icon, not the BotSpot sender logo. The generated sender-avatar variant is also rejected for this use because it does not match the actual BotSpot badge.
+
+## Animated GIF Result
 
 Google Admin accepted only PNG/JPG/JPEG uploads for profile photos. The animated GIF upload was rejected with:
 
@@ -34,49 +45,41 @@ The Admin file picker advertised:
 
 `accept=".png,.jpg,.jpeg"`
 
-After uploading the PNG, each user page showed a custom `lh3.google.com` profile-photo URL after reload:
+Gmail sender avatars are therefore using the static canonical PNG. Do not spend money on BIMI/CMC/VMC unless Rob explicitly reverses the cost decision.
 
-- `BotSpot News <contact@news.botspot.trade>`
-- `BotSpot Contact <contact@botspot.trade>`
-- `Rob Grzesik <rob@botspot.trade>`
+## Required Google Setup
 
-### Real SES Test Sends
+Admin-uploading the photo is not enough by itself for SES-sent external mail to show the Gmail avatar.
 
-Sent real SES test messages to `rob@lumiwealth.com` from all three sender identities at `20260524-195722` UTC:
+For each sender user:
 
-- `contact@botspot.trade`
-  - Message ID: `0100019e5b904a97-ce91c057-0298-4f9d-b5b5-46f6d5794d2a-000000`
-- `contact@news.botspot.trade`
-  - Message ID: `0100019e5b904d10-7346673c-c3c9-47e7-a2f0-ca6e62785dae-000000`
-- `rob@botspot.trade`
-  - Message ID: `0100019e5b904f6e-8686d972-1532-4db7-8696-b2395932e0c9-000000`
+1. Upload the canonical badge in Google Admin.
+2. Sign in as that user once.
+3. Open Google Account About Me / Profile.
+4. Confirm `Profile picture` is visible to `Anyone`.
+5. Send a real SES test message and inspect it in Gmail.
 
-Gmail received all three messages, but the opened `contact@news.botspot.trade` test still showed Gmail's default blue avatar in the message header.
+This was verified on 2026-05-24.
 
-Evidence screenshots:
+## Verified Gmail Evidence
 
-- `/Users/robertgrzesik/Development/brand-assets/botspot/sender-profile/gmail_sender_avatar_test_20260524_195722.png`
-- `/Users/robertgrzesik/Development/brand-assets/botspot/sender-profile/gmail_open_news_avatar_test_20260524_195722.png`
+Final SES test stamp: `20260524-210728`
 
-## Current Interpretation
+Message IDs:
 
-The free Google Admin profile-photo upload is not enough by itself for Gmail sender-avatar display on SES-sent external mail.
+- `contact@news.botspot.trade`: `0100019e5bd07a13-b9795dd9-10ff-45b8-a3fb-dde2117d70ef-000000`
+- `contact@botspot.trade`: `0100019e5bd07cad-e23be3ed-ab63-4b31-9e63-4144d5305804-000000`
+- `rob@botspot.trade`: `0100019e5bd07f06-17f1ad53-4cf7-46f2-92a3-5b33b93a7d06-000000`
 
-Google's Workspace Admin help says admin-added user photos are visible to users in the organization and to external users they talk to in Google Chat. Google's Account help says user-controlled Google Account profile info can be made visible to `Anyone` and can appear in Google services including Gmail.
+Screenshots:
 
-So the next free attempt is:
+- `/Users/robertgrzesik/Development/brand-assets/botspot/sender-profile/gmail_final_logo_results_20260524-210728.png`
+- `/Users/robertgrzesik/Development/brand-assets/botspot/sender-profile/gmail_open_news_final_logo_20260524-210728.png`
+- `/Users/robertgrzesik/Development/brand-assets/botspot/sender-profile/gmail_open_contact_final_logo_20260524-210728.png`
+- `/Users/robertgrzesik/Development/brand-assets/botspot/sender-profile/gmail_open_rob_final_logo_20260524-210728.png`
 
-1. Re-authenticate into Google Admin.
-2. Reset or set passwords for the three free Cloud Identity sender users if needed.
-3. Sign in as each sender user.
-4. Upload the same profile image from the Google Account side, not only Admin.
-5. Set profile-photo visibility to `Anyone` where Google exposes that control.
-6. Send fresh SES test messages and inspect Gmail again.
+All three opened Gmail screenshots show the real circular BotSpot badge next to the sender name.
 
-## Blocker
+## Historical Failed Evidence
 
-Google required admin re-auth before the account-side work could continue:
-
-`Open the Gmail app on Apple iPhone 15 Pro Max ... tap Yes on the prompt`
-
-Do not buy BIMI/CMC/VMC for this unless Rob explicitly reverses the cost decision. Gmail BIMI logo display still requires a certificate path, and Rob rejected the yearly certificate cost.
+Earlier screenshots in this folder show the bad favicon/generic-avatar attempts and are retained only as debugging evidence. Do not copy their assets forward.
