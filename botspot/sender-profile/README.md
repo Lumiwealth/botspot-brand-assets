@@ -1,6 +1,6 @@
 # BotSpot Sender Profile Images
 
-Status as of 2026-05-24:
+Status as of 2026-05-25:
 
 - Google Cloud Identity users exist for:
   - `contact@botspot.trade`
@@ -10,6 +10,7 @@ Status as of 2026-05-24:
 - All three accounts show `Cloud Identity Free` only and `$0.00` total estimated monthly bill in Google Admin.
 - All three accounts have been signed in once and their Google Account profile-picture visibility is set to `Anyone`.
 - Fresh real SES test messages to `rob@lumiwealth.com` show the BotSpot sender avatar in Gmail for all three accounts.
+- Animated Google Account profile GIFs are now set for all three sender accounts through the direct Google Account profile-photo flow.
 - `contact@botspot.trade` is also saved in Rob's Google Contacts as `BotSpot by Lumiwealth` with the canonical badge, because Gmail iOS can use the recipient's Contacts card/directory resolution in the message list.
 
 ## Canonical Asset
@@ -38,7 +39,7 @@ The favicon is an app/browser icon, not the BotSpot sender logo. The generated s
 
 ## Animated GIF Result
 
-Google Admin accepted only PNG/JPG/JPEG uploads for profile photos. The animated GIF upload was rejected with:
+Google Admin accepted only PNG/JPG/JPEG uploads for profile photos. The animated GIF upload was rejected there with:
 
 `Unsupported file type. Please upload images only.`
 
@@ -46,7 +47,38 @@ The Admin file picker advertised:
 
 `accept=".png,.jpg,.jpeg"`
 
-Gmail sender avatars are therefore using the static canonical PNG. Do not spend money on BIMI/CMC/VMC unless Rob explicitly reverses the cost decision.
+Do not use Google Admin for animated avatars.
+
+Direct Google Account profile-photo upload does accept animated GIFs. On 2026-05-25, Chrome MCP uploaded and saved:
+
+`/Users/robertgrzesik/Development/recovery/botspot_node_sender_avatar_20260524/tmp/sender-avatar/selected/botspot_sender_avatar_selected_gen45_pulse_256.gif`
+
+for:
+
+- `contact@news.botspot.trade`
+- `contact@botspot.trade`
+- `rob@botspot.trade`
+
+Chrome network evidence after saving showed the profile image responses as `content-type: image/gif` with `filename="unnamed.gif"` for all three Google Account profile pages.
+
+Fresh SES test messages were sent to `rob@lumiwealth.com` at stamp `20260525-233201`. Gmail opened-message inspection for `contact@news.botspot.trade` loaded the sender avatar from:
+
+`https://lh3.googleusercontent.com/a/ACg8ocLGARk4-opZ3KVMgc7_NrzqVE5u28RsX7_IMw--yZ0ojr72Fzw=s80-p`
+
+That Gmail-rendered sender-avatar asset was downloaded to:
+
+`/Users/robertgrzesik/Development/brand-assets/botspot/sender-profile/gmail_rendered_news_avatar_s80_20260525.gif`
+
+and verified as `GIF image data, version 89a, 80 x 80` with `73` frames.
+
+Evidence screenshots:
+
+- `/Users/robertgrzesik/Development/brand-assets/botspot/sender-profile/gmail_animated_avatar_test_list_20260525-233201.png`
+- `/Users/robertgrzesik/Development/brand-assets/botspot/sender-profile/gmail_animated_avatar_test_open_news_20260525-233201.png`
+
+Important caveat: Gmail says profile-photo changes can take a day or two to propagate across all Google services. If iOS still shows a cached static image immediately after upload, wait for propagation and re-check before changing assets again.
+
+Do not spend money on BIMI/CMC/VMC unless Rob explicitly reverses the cost decision.
 
 ## Required Google Setup
 
