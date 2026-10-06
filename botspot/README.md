@@ -1,5 +1,10 @@
 # BotSpot Brand Assets
 
+The flat gray/orange robot is rejected and has been deleted. Never use or
+recreate it, including for Auth0 or favicons. Use the unchanged detailed
+`botspot_icon_badge_rgba.png` for square brand surfaces. See `../AGENTS.md`
+and run the brand contract before importing an asset.
+
 Master files for the BotSpot mascot, wordmark, and brand lockups.
 
 ## ⚠️ Critical gotcha: nano-banana outputs JPEG, not PNG

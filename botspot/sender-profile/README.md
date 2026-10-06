@@ -35,7 +35,9 @@ Do not use these for Gmail sender/profile avatars:
 - `/Users/robertgrzesik/Development/brand-assets/botspot/sender-profile/botspot_sender_avatar_variant_a_static_512.png`
 - `/Users/robertgrzesik/Development/brand-assets/botspot/sender-profile/botspot_sender_avatar_variant_a_256.gif`
 
-The favicon is an app/browser icon, not the BotSpot sender logo. The generated sender-avatar variant is also rejected for this use because it does not match the actual BotSpot badge.
+Those flat favicon files were permanently removed from the usable asset set on
+2026-10-06. They are rejected for every use, including Auth0 and browser tabs.
+The detailed canonical badge above is the approved square brand artwork. The generated sender-avatar variant is also rejected for this use because it does not match the actual BotSpot badge.
 
 ## Animated GIF Result
 

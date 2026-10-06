@@ -28,7 +28,6 @@ brand-assets/
   botspot/
     README.md                                  Lumiwealth's notes on the asset set
     botspot_banner_16x9_*.png                  16:9 banners (cyan / dark / rgba transparent)
-    botspot_favicon*.png                       favicons (square)
     botspot_horizontal_dark_*.png              horizontal logo on dark backgrounds
     botspot_horizontal_light_*.png             horizontal logo on light backgrounds
     botspot_icon_badge_*.png                   icon-only badge (square, app icon use)
@@ -50,14 +49,21 @@ brand-assets/
 Original masters live in Rob's Google Drive at
 `/Users/robertgrzesik/Library/CloudStorage/GoogleDrive-rob.grzesik@gmail.com/My Drive/Lumiwealth/Brand Assets/BotSpot/`.
 
-This folder mirrors the Drive contents. Copy direction is Drive -> here
-(not the other way) so the Drive remains canonical. Refresh when new
-masters land:
+Import individual approved assets into an agent-owned worktree. Never copy
+all Drive masters over the repository: historical Drive exports can contain
+rejected artwork. Run the brand check before committing and push tested work
+to GitHub main.
 
-```
-cp -r "/Users/robertgrzesik/Library/CloudStorage/GoogleDrive-rob.grzesik@gmail.com/My Drive/Lumiwealth/Brand Assets/BotSpot/"*.png \
-      /Users/robertgrzesik/Development/brand-assets/botspot/
-```
+## Rejected artwork: deleted and banned
+
+Rob rejected the flat gray robot with solid orange eyes and white diagonal
+arrows on 2026-10-06. All three former favicon variants were deleted. Never
+use that design anywhere, including Auth0, browser tabs, app icons or email.
+Use the unchanged detailed Spot badge listed below.
+
+Run `node --test tests/*.test.mjs` and `node scripts/check-brand-assets.mjs`.
+CI rejects the deleted filenames and their exact image bytes even when
+renamed. Read [AGENTS.md](AGENTS.md) before selecting or importing a logo.
 
 ## Where to use what
 
@@ -65,7 +71,7 @@ cp -r "/Users/robertgrzesik/Library/CloudStorage/GoogleDrive-rob.grzesik@gmail.c
 |---|---|
 | Email header banner | `botspot_banner_16x9_dark.png` or `_rgba.png` for transparent overlays |
 | Email mascot accent (newsletter dividers, sign-off) | `botspot_mascot_rgba.png` |
-| Web app favicon / app icon | `botspot_icon_badge_cyan.png` |
+| Web app favicon / app icon / Auth0 | `botspot_icon_badge_rgba.png` |
 | Web app horizontal logo (dark mode) | `botspot_horizontal_dark_cyan.png` or `_rgba.png` |
 | Web app horizontal logo (light mode) | `botspot_horizontal_light.png` |
 | Slide decks / investor materials | `botspot_horizontal_dark.png` (dark slides) or `botspot_horizontal_light.png` (light slides) |
